@@ -7,11 +7,12 @@ import { StorageService } from '../services/storage.service';
   styleUrls: ['./clock.component.scss']
 })
 export class ClockComponent implements OnInit {
-  hourInput: number = 0;
-  minuteInput: number = 0;
-  intervalId: any;
+
 
   constructor(private _storageService: StorageService) { }
+    hourInput: number = 0;
+  minuteInput: number = 0;
+  intervalId: any;
   ngOnInit(): void {
     this.hourInput = this._storageService.getData("hourInput") == null ? 9 : Number(this._storageService.getData("hourInput"));
     this.minuteInput = this._storageService.getData("minuteInput") == null ? 15 : Number(this._storageService.getData("minuteInput"));
@@ -32,6 +33,7 @@ export class ClockComponent implements OnInit {
 
     const hour = this.hourInput;
     const minute = this.minuteInput;
+    debugger
     const hourArr = this.getFibonacciArray(hour);
     const minuteArr = this.getFibonacciArray(minute / 5);
     const red = [];
