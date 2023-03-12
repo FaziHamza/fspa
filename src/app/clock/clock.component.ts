@@ -16,11 +16,11 @@ export class ClockComponent implements OnInit {
     this.hourInput = this._storageService.getData("hourInput") == null ? 9 : Number(this._storageService.getData("hourInput"));
     this.minuteInput = this._storageService.getData("minuteInput") == null ? 15 : Number(this._storageService.getData("minuteInput"));
 
-    this.intervalId = setInterval(() => {
+    this.intervalId = setInterval(() => { // update time every sec but update effect on UI after 5 mintus
       this.generateTime();
     }, 1000);
   }
-  ngOnDestroy(): void {
+  ngOnDestroy(): void { // remove the interbla once page app close.
     clearInterval(this.intervalId);
   }
 
@@ -28,7 +28,7 @@ export class ClockComponent implements OnInit {
     event.preventDefault();
   }
 
-  generateTime(): void {
+  generateTime(): void { // genrate time and upadte things
 
     const hour = this.hourInput;
     const minute = this.minuteInput;
@@ -71,7 +71,7 @@ export class ClockComponent implements OnInit {
     this.setTimeInToLocalstorage();
   }
 
-  getFibonacciArray(value: number): number[] {
+  getFibonacciArray(value: number): number[] { // genrate Fibonacci Array 
     let sum = 1;
     const firstVal = (value == 0) ? 0 : 1;
     let nextValue = 1;
@@ -103,7 +103,7 @@ export class ClockComponent implements OnInit {
     }
     return newArr;
   }
-  applyColor(value: number, color: string): void {
+  applyColor(value: number, color: string): void { // apply colir on time change base on value 
     let tds: HTMLCollectionOf<Element> | null = null;
     if (value == 2) {
       tds = document.getElementsByClassName("two");
@@ -123,7 +123,7 @@ export class ClockComponent implements OnInit {
       }
     }
   }
-  next() {
+  next() { // to handel handel time and hours
     if (this.minuteInput == 55) {
       if (this.hourInput < 12) {
         this.hourInput += 1;
