@@ -16,10 +16,10 @@ export class ClockComponent implements OnInit {
   ngOnInit(): void {
     this.hourInput = this._storageService.getData("hourInput") == null ? 9 : Number(this._storageService.getData("hourInput"));
     this.minuteInput = this._storageService.getData("minuteInput") == null ? 15 : Number(this._storageService.getData("minuteInput"));
-
+    this.generateTime();
     this.intervalId = setInterval(() => { // update time every sec but update effect on UI after 5 mintus
       this.generateTime();
-    }, 1000);
+    }, 10000);
   }
   ngOnDestroy(): void { // remove the interbla once page app close.
     clearInterval(this.intervalId);
@@ -33,7 +33,7 @@ export class ClockComponent implements OnInit {
 
     const hour = this.hourInput;
     const minute = this.minuteInput;
-    debugger
+    
     const hourArr = this.getFibonacciArray(hour);
     const minuteArr = this.getFibonacciArray(minute / 5);
     const red = [];
@@ -65,11 +65,7 @@ export class ClockComponent implements OnInit {
         this.applyColor(val, "white");
       }
     }
-    console.log("*************");
-    console.log("Red :" + red);
-    console.log("Blue :" + blue);
-    console.log("Green :" + green);
-    console.log("White :" + white);
+
     this.setTimeInToLocalstorage();
   }
 
