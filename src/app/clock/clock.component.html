@@ -16,10 +16,10 @@
   </div>
   <div class="actionPanel">
     <div class="input-fields">
-      <input class="form-control" id="hourInput" type="number" [(ngModel)]="hourInput" min="1" max="12" step="1"
-        placeholder="hour" onkeypress="onKeyDown(event)" />
-      <input class="form-control" id="minuteInput" type="number" [(ngModel)]="minuteInput" min="0" max="55" step="5"
-        placeholder="minute" onkeypress="onKeyDown(event)" />
+      <input class="form-control" id="hourInput" readonly  type="number" [(ngModel)]="hourInput" min="1" max="12" step="1"
+        placeholder="hour" />
+      <input class="form-control" id="minuteInput" readonly type="number" [(ngModel)]="minuteInput" min="0" max="55" step="5"
+        placeholder="minute"  />
       <!-- <input id="buttonDisplay" class="btn btn-info" type="button" Value="Display" (click)="generateTime()" /> -->
     </div>
     <button class="btn btn-primary" id="buttonDisplay" type="button" (click)="generateTime()">
@@ -31,3 +31,5 @@
     <button class="btn btn-dark" (click)="next()"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
 </div>
+
+<h3 class="devby" >Developed By : Faizan ( Senior Angular Frontend Developer)</h3>

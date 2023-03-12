@@ -25,8 +25,8 @@ export class ClockComponent implements OnInit {
     clearInterval(this.intervalId);
   }
 
-  onKeyDown(event: KeyboardEvent): void {
-    event.preventDefault();
+  onKeyDown(): void {
+    
   }
 
   generateTime(): void { // genrate time and upadte things
